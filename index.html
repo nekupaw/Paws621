@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paws621</title>
+    <link rel="icon" href="WebIcon.ico" type="image/x-icon">
+</head>
+
+<link rel="stylesheet" href="styles.css">
+
+<body>
+
+    <div class="Headline">
+        <a class="Ueberschrift">Paws621</a>
+    </div>
+
+    <div class="ImageCountContainer">
+        <span id="imageCount">Paws Pics</span>
+    </div>
+
+    <div class="PawUploadContainer">
+    <a>Upload Paw</a>
+    </div>
+
+        <form enctype="multipart/form-data">
+            <input type="file" id="imageFile" accept="image/*">
+
+    <div class="UploadContainer">
+            <button class="uploadBtn" type="button" onclick="uploadImage()"></button>
+        </form>
+    
+    </div>
+
+    <br>
+
+    <div id="imageGallery"></div>
+
+
+
+
+<!-- Firebase App (Version 8.x.x) -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+<!-- Firebase Storage (Version 8.x.x) -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDxwMf0VXc8Q4H5s2UIrzJtreCY9JBQCak",
+            authDomain: "paws621-be248.firebaseapp.com",
+            projectId: "paws621-be248",
+            storageBucket: "paws621-be248.appspot.com",
+            messagingSenderId: "540893716546",
+            appId: "1:540893716546:web:40a2250255059865e6cddb"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+
+        function uploadImage() {
+            var fileInput = document.getElementById('imageFile');
+            var selectedFile = fileInput.files[0];
+
+            if (selectedFile) {
+                var storageRef = firebase.storage().ref();
+                var imageRef = storageRef.child('images/' + selectedFile.name);
+
+
+                imageRef.put(selectedFile).then(function(snapshot) {
+                    console.log('Bild erfolgreich hochgeladen.');
+                    location.reload();
+                }).catch(function(error) {
+                    console.error('Fehler beim Hochladen des Bildes:', error);
+                });
+            } else {
+                console.error('Kein Bild ausgewählt.');
+            }
+        }
+
+
+        var imageGallery = document.getElementById('imageGallery');
+        var storageRef = firebase.storage().ref().child('images');
+
+        storageRef.listAll().then(function(result) {
+            result.items.forEach(function(item) {
+                item.getDownloadURL().then(function(url) {
+                    var img = document.createElement('img');
+                    img.src = url;
+                    img.style.width = '200px';
+                    imageGallery.appendChild(img);
+                });
+            });
+        }).catch(function(error) {
+            console.error('Fehler beim Auflisten der Bilder:', error);
+        });
+
+
+
+        var storageRef = firebase.storage().ref().child('images');
+        storageRef.listAll().then(function(result) {
+            var imageCount = result.items.length;
+            var imageCountElement = document.getElementById('imageCount');
+            imageCountElement.textContent = imageCount + ' Paws Pics';
+        }).catch(function(error) {
+            console.error('Fehler beim Zählen der Bilder:', error);
+        });
+
+
+    </script>
+</body>
+</html>

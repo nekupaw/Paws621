@@ -1,0 +1,67 @@
+@font-face
+{
+    font-family: 'Dreieque';
+    src: url('Fonts/Dreieque.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#imageCount {
+    font-size: 30px;
+}
+
+.Headline
+{
+height: 200px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.PawUploadContainer
+{
+    height: 80px;
+font-size: 50px;
+}
+
+.ImageCountContainer
+{
+height: 100px;
+display: flex;
+justify-content: center;
+}
+
+*
+{
+font-family: 'Dreieque', sans-serif;
+color: white;
+background-color: rgb(56, 27, 83);
+}
+
+.Ueberschrift
+{
+font-size: 100px;
+}
+
+
+.uploadBtn
+{
+        width: 129px;
+        height: 27px;
+        background-image: url('ui_design/UploadBtn.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+}
+
+.UploadContainer
+{
+margin-top: 20px;
+height: 70px;
+display: flex;
+justify-content: left;
+flex-direction: column;
+}
