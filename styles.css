@@ -7,9 +7,35 @@
 }
 
 
-#imageCount {
+#imageCount
+{
     font-size: 30px;
 }
+
+.TopLine
+{
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 17px;
+    margin-top: 10px;
+}
+
+.GermanFurryBtn
+{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    background-size: 25px;
+    background-position: center;
+    background-image: url(discordIcon.png);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
 
 .Headline
 {
@@ -41,7 +67,7 @@ background-color: rgb(56, 27, 83);
 
 .Ueberschrift
 {
-font-size: 100px;
+font-size: 120px;
 }
 
 
