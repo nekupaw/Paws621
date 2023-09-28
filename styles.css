@@ -6,6 +6,19 @@
     font-style: normal;
 }
 
+.uploadBtn
+{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-image: url('ui_design/AddBackground.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
 
 #imageCount
 {
@@ -59,11 +72,7 @@ justify-content: center;
 align-items: center;
 }
 
-.PawUploadContainer
-{
-    height: 80px;
-font-size: 50px;
-}
+
 
 .ImageCountContainer
 {
@@ -85,23 +94,3 @@ font-size: 120px;
 }
 
 
-.uploadBtn
-{
-        width: 129px;
-        height: 27px;
-        background-image: url('ui_design/UploadBtn.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border: none;
-        cursor: pointer;
-}
-
-.UploadContainer
-{
-margin-top: 20px;
-height: 70px;
-display: flex;
-justify-content: left;
-flex-direction: column;
-}

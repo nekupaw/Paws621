@@ -32,20 +32,12 @@
         <span id="imageCount">Paw Pics</span>
     </div>
 
-    <div class="PawUploadContainer">
-    <a>Upload Paw</a>
-    </div>
 
-        <form enctype="multipart/form-data">
-            <input type="file" id="imageFile" accept="image/*">
+    <form enctype="multipart/form-data">
+        <input type="file" id="imageFile" accept="image/*" style="display: none;">
+    <label for="imageFile" id="upload" class="uploadBtn"></label>
 
-    <div class="UploadContainer">
-            <button class="uploadBtn" type="button" onclick="uploadImage()"></button>
-        </form>
-    
-    </div>
 
-    <br>
 
     <div id="imageGallery"></div>
 
@@ -59,6 +51,22 @@
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
 
     <script>
+
+var fileInput = document.getElementById("imageFile");
+
+var ergebnisElement = document.getElementById("ergebnis");
+
+fileInput.addEventListener("change", function() {
+    var selectedFile = fileInput.files[0];
+
+    if (selectedFile)
+    {
+            uploadImage();
+    }
+});
+
+
+        
         var firebaseConfig = {
             apiKey: "AIzaSyDxwMf0VXc8Q4H5s2UIrzJtreCY9JBQCak",
             authDomain: "paws621-be248.firebaseapp.com",
