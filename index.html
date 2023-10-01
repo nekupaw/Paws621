@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="styles.css">
 
 <body>
+
+
     <div class="TopLine">
         
         <a href="https://twitter.com/nekupaw" target="_blank">
@@ -20,8 +22,31 @@
             <button class="GermanFurryBtn"></button>
         </a>
 
+    </div>
+
+
+
+    <div id="splashScreen" class="splashScreenContainer">
+
+        <div class="splashScreenTop">
+            <a class="SplashUeberschrift">Paws621</a>
+        </div>
+
+        <div class="splashScreenUploadContainer">
+
+            <img src="ui_design/lock_FILL0_wght400_GRAD0_opsz40.png" alt="lockSymbol">
+
+            <a class="SplashUploadText">First of all, to be able to visit the site, upload a Paw Pic beforehand owo</a>
+
+            <form enctype="multipart/form-data">
+                <input type="file" id="imageFile" accept="image/*" style="display: none;">
+            <label for="imageFile" id="upload" class="uploadBtn"></label>
+
+        </div>
+
 
     </div>
+
 
 
     <div class="Headline">
@@ -42,6 +67,8 @@
     <div id="imageGallery"></div>
 
 
+
+    <div class="Background"></div>
 
 
 <!-- Firebase App (Version 8.x.x) -->
@@ -108,7 +135,7 @@ fileInput.addEventListener("change", function() {
                 item.getDownloadURL().then(function(url) {
                     var img = document.createElement('img');
                     img.src = url;
-                    img.style.width = '200px';
+                    img.style.width = '220px';
                     imageGallery.appendChild(img);
                 });
             });
@@ -126,6 +153,63 @@ fileInput.addEventListener("change", function() {
         }).catch(function(error) {
             console.error('Fehler beim Zählen der Bilder:', error);
         });
+
+
+
+
+
+        
+
+var visitCookie = getCookie("visit");
+
+
+if (!visitCookie || isCookieExpired(visitCookie))
+{
+lockSite();
+
+var expiresDate = new Date();
+
+expiresDate.setDate(expiresDate.getDate() +1);
+document.cookie = "visit=true; expires=" + expiresDate.toUTCString();
+}
+
+
+function getCookie(name)
+{
+var cookieValue = ""
+var cookies = document.cookie.split("; ");
+
+for (var i = 0; i < cookies.length; i++)
+{
+var cookie = cookies[i];
+var parts = cookie.split("=");
+
+if (parts[0] === name)
+{
+cookieValue = parts[1];
+break;
+}
+}
+
+return cookieValue;
+
+}
+
+function isCookieExpired(cookieValue) {
+    var now = new Date();
+    var expiresDate = new Date(cookieValue);
+    return now > expiresDate;
+  }
+
+
+
+function lockSite()
+{
+var SplashDisplay = document.getElementById('splashScreen');
+
+SplashDisplay.style.display = "flex";
+}
+
 
 
     </script>
