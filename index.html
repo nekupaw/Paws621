@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="styles.css">
 
-<body>
+<body onload="onPageLoad()">
 
 
     <div class="TopLine">
@@ -79,6 +79,48 @@
 
     <script>
 
+
+var visitCookie = getCookie("visit");
+
+function onPageLoad() {
+  visitCookie = getCookie("visit");
+  checkAndLockSite();
+}
+
+function getCookie(name) {
+  var cookieValue = "";
+  var cookies = document.cookie.split("; ");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    var parts = cookie.split("=");
+    if (parts[0] === name) {
+      cookieValue = parts[1];
+      break;
+    }
+  }
+  return cookieValue;
+}
+
+function isCookieExpired(cookieValue) {
+  var now = new Date();
+  var expiresDate = new Date(cookieValue);
+  return now > expiresDate;
+}
+
+function lockSite() {
+  var SplashDisplay = document.getElementById('splashScreen');
+  SplashDisplay.style.display = "flex";
+}
+
+function checkAndLockSite() {
+  if (!visitCookie || isCookieExpired(visitCookie)) {
+    lockSite();
+  }
+}
+
+
+
+
 var fileInput = document.getElementById("imageFile");
 
 var ergebnisElement = document.getElementById("ergebnis");
@@ -117,6 +159,11 @@ fileInput.addEventListener("change", function() {
 
                 imageRef.put(selectedFile).then(function(snapshot) {
                     console.log('Bild erfolgreich hochgeladen.');
+
+                var expiresDate = new Date();
+                expiresDate.setDate(expiresDate.getDate() + 1);
+                document.cookie = "visit=true; expires=" + expiresDate.toUTCString();
+
                     location.reload();
                 }).catch(function(error) {
                     console.error('Fehler beim Hochladen des Bildes:', error);
@@ -155,62 +202,7 @@ fileInput.addEventListener("change", function() {
         });
 
 
-
-
-
-        
-
-var visitCookie = getCookie("visit");
-
-
-if (!visitCookie || isCookieExpired(visitCookie))
-{
-lockSite();
-
-var expiresDate = new Date();
-
-expiresDate.setDate(expiresDate.getDate() +1);
-document.cookie = "visit=true; expires=" + expiresDate.toUTCString();
-}
-
-
-function getCookie(name)
-{
-var cookieValue = ""
-var cookies = document.cookie.split("; ");
-
-for (var i = 0; i < cookies.length; i++)
-{
-var cookie = cookies[i];
-var parts = cookie.split("=");
-
-if (parts[0] === name)
-{
-cookieValue = parts[1];
-break;
-}
-}
-
-return cookieValue;
-
-}
-
-function isCookieExpired(cookieValue) {
-    var now = new Date();
-    var expiresDate = new Date(cookieValue);
-    return now > expiresDate;
-  }
-
-
-
-function lockSite()
-{
-var SplashDisplay = document.getElementById('splashScreen');
-
-SplashDisplay.style.display = "flex";
-}
-
-
+        onPageLoad();
 
     </script>
 </body>
