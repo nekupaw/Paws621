@@ -24,6 +24,23 @@
 
     </div>
 
+    
+    
+    <div class="uploadBackgroundContainer" id="uploadImageViewId">
+
+        <div class="UploadImageViewContainer">
+
+            <button class="UploadImageViewSwitchBtn" type="button" onclick="triggerFileInput()"></button>
+            <button class="UploadImageViewCloseBtn" type="button" onclick="CloseUploadContainer()"></button>
+
+            <img class="UploadImageView" src="" alt="Selected Image" id="selectedImage">
+            <p class="FileNameContainer" id="fileName"></p>
+            <button class="SelectedUploadBtn" type="button" onclick="uploadImage()"></button>
+
+        </div>
+
+        <div class="uploadBoxContainer"></div>
+    </div>
 
 
     <div id="splashScreen" class="splashScreenContainer">
@@ -43,10 +60,16 @@
             <label for="imageFile" id="upload" class="uploadBtn"></label>
 
         </div>
-
-
     </div>
 
+
+
+
+
+
+    <div class="TopImageContainer">
+        <img src="Gropius_feeties.png" class="TopImage" alt="TopImage">
+    </div>
 
 
     <div class="Headline">
@@ -61,7 +84,6 @@
     <form enctype="multipart/form-data">
         <input type="file" id="imageFile" accept="image/*" style="display: none;">
     <label for="imageFile" id="upload" class="uploadBtn"></label>
-
 
 
     <div id="imageGallery"></div>
@@ -130,11 +152,36 @@ fileInput.addEventListener("change", function() {
 
     if (selectedFile)
     {
-            uploadImage();
+            var imageURL = URL.createObjectURL(selectedFile);
+            selectedImage.src = imageURL;
+
+            var fileNameElement = document.getElementById('fileName');
+            fileNameElement.textContent = "FileName: " + selectedFile.name
+
+            
+            var uploadImageViewContainer = document.getElementById('uploadImageViewId')
+            uploadImageViewContainer.style.display = "flex";
+
     }
 });
 
 
+        
+        function CloseUploadContainer()
+        {
+            var uploadImageViewContainer = document.getElementById('uploadImageViewId')
+
+            uploadImageViewContainer.style.display = "none";
+
+            fileInput.value = '';
+        }
+
+
+        function triggerFileInput()
+        {
+            var fileInput = document.getElementById("imageFile");
+            fileInput.click();
+        }
         
         var firebaseConfig = {
             apiKey: "AIzaSyDxwMf0VXc8Q4H5s2UIrzJtreCY9JBQCak",
@@ -147,8 +194,8 @@ fileInput.addEventListener("change", function() {
 
         firebase.initializeApp(firebaseConfig);
 
-
-        function uploadImage() {
+        function uploadImage()
+        {
             var fileInput = document.getElementById('imageFile');
             var selectedFile = fileInput.files[0];
 
@@ -202,7 +249,6 @@ fileInput.addEventListener("change", function() {
         });
 
 
-        onPageLoad();
 
     </script>
 </body>
