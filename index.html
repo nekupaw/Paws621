@@ -103,6 +103,18 @@
     <script>
 
 
+
+function handleEscapeKey(event) {
+  var uploadImageViewContainer = document.getElementById('uploadImageViewId');
+  
+  if (event.keyCode === 27 && uploadImageViewContainer.style.display === "flex") {
+    CloseUploadContainer();
+  }
+}
+
+document.addEventListener("keydown", handleEscapeKey);
+
+
 var visitCookie = getCookie("visit");
 
 function onPageLoad() {
