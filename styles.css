@@ -143,6 +143,7 @@ border-radius: 35px;
 
 .splashScreenContainer
 {
+display: none;
 position: fixed;
 top: 0;
 left: 0;
