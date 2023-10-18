@@ -30,12 +30,13 @@
 
         <div class="UploadImageViewContainer">
 
-            <button class="UploadImageViewSwitchBtn" type="button" onclick="triggerFileInput()"></button>
-            <button class="UploadImageViewCloseBtn" type="button" onclick="CloseUploadContainer()"></button>
+            <button id="UploadImageViewSwitchBtnId" class="UploadImageViewSwitchBtn" type="button" onclick="triggerFileInput()"></button>
+            <button id="UploadImageViewCloseBtnId" class="UploadImageViewCloseBtn" type="button" onclick="CloseUploadContainer()"></button>
 
             <img class="UploadImageView" src="" alt="Selected Image" id="selectedImage">
             <p class="FileNameContainer" id="fileName"></p>
-            <button class="SelectedUploadBtn" type="button" onclick="uploadImage()"></button>
+            <div class="loader" id="LoaderId"></div>
+            <button id="UploadBtnId" class="SelectedUploadBtn" type="button" onclick="uploadImage()"></button>
 
         </div>
 
@@ -194,6 +195,20 @@ fileInput.addEventListener("change", function() {
 
         firebase.initializeApp(firebaseConfig);
 
+        function uploadImagee()
+        {
+            var UploadBtnn = document.getElementById("UploadBtnId");
+            var LoaderObj = document.getElementById("LoaderId");
+            var UploadCloseBtn = document.getElementById("UploadImageViewCloseBtnId")
+            var UploadSwitchBtn = document.getElementById("UploadImageViewSwitchBtnId");
+
+                UploadBtnn.style.display = "none";
+                LoaderObj.style.display = "flex";
+                UploadCloseBtn.style.display = "none";
+                UploadSwitchBtn.style.display = "none";
+        }
+
+
         function uploadImage()
         {
             var fileInput = document.getElementById('imageFile');
@@ -202,6 +217,17 @@ fileInput.addEventListener("change", function() {
             if (selectedFile) {
                 var storageRef = firebase.storage().ref();
                 var imageRef = storageRef.child('images/' + selectedFile.name);
+
+            var UploadBtnn = document.getElementById("UploadBtnId");
+            var LoaderObj = document.getElementById("LoaderId");
+            var UploadCloseBtn = document.getElementById("UploadImageViewCloseBtnId")
+            var UploadSwitchBtn = document.getElementById("UploadImageViewSwitchBtnId");
+
+                UploadBtnn.style.display = "none";
+                LoaderObj.style.display = "flex";
+                UploadCloseBtn.style.display = "none";
+                UploadSwitchBtn.style.display = "none";
+
 
 
                 imageRef.put(selectedFile).then(function(snapshot) {
