@@ -1,3 +1,7 @@
+@media (max-width: 768px) {
+    /* CSS-Anpassungen für kleinere Bildschirme */
+  }
+
 @font-face
 {
     font-family: 'Dreieque';
@@ -231,7 +235,6 @@ gap: 50px;
     background-position: center;
     background-image: url(discordIcon.png);
     color: #fff;
-    background-color: rgb(56, 27, 83);
     text-decoration: none;
     border: none;
     cursor: pointer;
@@ -245,7 +248,20 @@ gap: 50px;
     background-size: 20px;
     background-position: center;
     background-image: url(XIcon.png);
-    background-color: rgb(56, 27, 83);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.GithubBtn
+{
+    display: inline-block;
+    height: 21px;
+    width: 22px;
+    background-size: 22px;
+    background-position: center;
+    background-image: url(github-mark-white.png);
     color: #fff;
     text-decoration: none;
     border: none;
