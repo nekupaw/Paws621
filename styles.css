@@ -105,7 +105,8 @@ z-index: 9999;
     display: flex;
     width: 35px;
     height: 35px;
-    background-image: url('ui_design/close_FILL0_wght600_GRAD-25_opsz48.png');
+    background-image: url('ui_design/escapeBtn.png');
+    transition: background-image 0.1s;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -117,6 +118,11 @@ z-index: 9999;
     align-items: center;
     position: fixed;
 }
+
+.UploadImageViewCloseBtn:hover{
+    background-image: url('ui_design/close_FILL0_wght600_GRAD-25_opsz48.png');
+}
+
 
 .uploadBoxContainer
 {
@@ -337,3 +343,4 @@ background: none;
     height: 500px;
     display: flex;
 }
+
