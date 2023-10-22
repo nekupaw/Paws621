@@ -118,7 +118,16 @@ function handleEscapeKey(event) {
   }
 }
 
+function checkEnter(event) {
+    var uploadImageViewContainer = document.getElementById('uploadImageViewId');
+
+    if (event.key === "Enter" && uploadImageViewContainer.style.display === "flex") {
+        uploadImage();
+    }
+}
+
 document.addEventListener("keydown", handleEscapeKey);
+document.addEventListener("keydown", checkEnter)
 
 
 var visitCookie = getCookie("visit");
