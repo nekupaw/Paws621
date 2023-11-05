@@ -248,6 +248,7 @@ function LogInFirebase()
                     LogInButton.textContent = "✓";
                     LogInButton.style.width = '48px';
                     LogInButton.style.fontSize = '25px'
+                    setAuthCookie();
                     setTimeout(LoadToHome, 800);
                 })
                 .catch((error) => {
@@ -265,14 +266,18 @@ function LogInFirebase()
 
 
 function LoadToHome(){
-    checkLogIn();
+    window.location.href = 'index.html';
 }
 
 
 
-function checkLogIn()
+function setAuthCookie()
 {
-    window.location.href = 'index.html'
+    var user = firebase.auth().currentUser;
+    user.getIdToken().then(function(token){
+    
+    document.cookie = "authToken=" + token;
+    })
 }
 
 </script>

@@ -138,6 +138,8 @@ var visitCookie = getCookie("visit");
 function onPageLoad() {
   visitCookie = getCookie("visit");
   checkAndLockSite();
+  getAuthCookie();
+  setTimeout(checkLogIn, 3000);
 }
 
 function getCookie(name) {
@@ -166,14 +168,6 @@ function lockSite() {
 }
 
 function checkAndLockSite() {
-
-if (firebase.auth().currentUser)
-{
-console.log("User angemeldet");
-}
-else{
-    console.log("User nicht angemeldet")
-}
 
   if (!visitCookie || isCookieExpired(visitCookie)) {
     lockSite();
@@ -313,6 +307,26 @@ fileInput.addEventListener("change", function() {
             console.error('Fehler beim Zählen der Bilder:', error);
         });
 
+
+
+        function getAuthCookie()
+        {
+            return decodeURIComponent(document.cookie)
+            .split('; ')
+            .find(cookie => cookie.startsWith("authToken="))
+            ?.split('=')[1] || null;
+        }
+
+        function checkLogIn(){
+            var user = firebase.auth().currentUser;
+
+            if (user){
+                console.log("User ist angemeldet");
+            }
+            else{
+                console.log("User ist nicht angemeldet");
+            }
+        }
 
 
     </script>
