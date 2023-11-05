@@ -34,6 +34,19 @@
     100% { transform: rotate(360deg); }
   }
 
+.loaderLogIn {
+    display: none;
+    position: fixed;
+    position: fixed;
+    border: 3px solid #a3a3a3;
+    border-top: 3px solid #000000;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    animation: spin 2s linear infinite;
+  }
+
+
 .UploadImageViewContainer
 {
 position: fixed;
@@ -343,4 +356,156 @@ background: none;
     height: 500px;
     display: flex;
 }
+
+.LogInFrame
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 700px;
+    width: 500px;
+    background-color:rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(40px);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.LogInFrameBtn
+{
+    gap: 15px;
+    display: flex;
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.LogInFrameUeberschrift
+{
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size: 50px;
+    display: flex;
+}
+
+.LogInFrameLogInText,
+.LogInFrameRegisterText
+{
+    margin-bottom: 20px;
+    margin-left: 60px;
+    font-size: 25px;
+    display: flex;
+}
+
+.LogInEmailInput
+{
+    height: 20px;
+    width: 350px;
+    display: flex;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    padding: 15px;
+}
+
+.LogInFramePasswordInput,
+.RegisterFramePasswordInput
+{
+    height: 20px;
+    width: 350px;
+    display: flex;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    padding: 15px;
+}
+
+.RegisterFramePasswordAgainInput
+{
+    height: 20px;
+    width: 350px;
+    display: flex;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    padding: 15px;
+    margin-top: 200px;
+    position: fixed;
+}
+
+
+.LogInFrameLogInBtn
+{
+height: 47px;
+width: 170px;
+background-color: white;
+border: none;
+border-radius: 30px;
+color: black;
+font-size: 20px;
+cursor: pointer;
+margin-top: 60px;
+margin-left: 60px;
+display: block;
+transition: display 0.3s, width 0.2s;
+position: fixed;
+}
+
+.LogInFrameRegisterBtn
+{
+    height: 47px;
+    width: 370px;
+    background-color: white;
+    border: none;
+    border-radius: 30px;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 280px;
+    position: fixed;
+    margin-left: 0;
+    transition: margin-left 0.3s, width 0.3s;
+}
+
+
+.LogInFrameInputContainer
+{
+    flex-direction: column;
+    row-gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 300px;
+}
+
+
+.BackBtnContainer
+{
+    display: inline-block;
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    background-size: 30px;
+    background-position: center;
+    background-image: url(ui_design/arrow_back_FILL0_wght600_GRAD0_opsz48.png);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 315px;
+    margin-left: 60px;
+}
+
+
 
