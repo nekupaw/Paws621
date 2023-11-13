@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paws621 - LogIn</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="WebIcon.ico" type="image/x-icon" >
 </head>
 <body>
     
@@ -13,7 +14,9 @@
 <div class="LogInFrame">
 
 
-    <div class="LogInFrameUeberschrift">Paws621</div>
+    <div class="LogInFrameUeberschrift">Paws621
+        <span style="font-size: 16px;">beta</span>
+    </div>
 
     <p class="LogInFrameLogInText" id="LogInFrameText">LogIn</p>
 
@@ -70,6 +73,10 @@
 
 <!-- Firebase Auth (Version 8.x.x) - Firebase Authentication -->
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+
+
+<!-- Firebase Database -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
 
 <script>
 
@@ -210,8 +217,22 @@ function RegisterFirebase()
         RegisterButton.fontSize = '25px';
         RegisterButton.style.marginLeft = '-240px'
         ErrorText.textContent = "Acount Created"
-        setTimeout(BackBtnFunction, 2000);
+        firebase.auth().signInWithEmailAndPassword(RegisterEmail, RegisterPassword)
+                .then((userCredential) => {
+                    setAuthCookie();
+                    setTimeout(LoadToHome, 800);
+                })
+                .catch((error) => {
+                    console.log("error");
+                });
         
+
+                const db = firebase.database();
+                const usernameRef = db.ref('usernames').child(user.uid);
+
+                usernameRef.set('new User621')
+                
+
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -266,7 +287,7 @@ function LogInFirebase()
 
 
 function LoadToHome(){
-    window.location.href = 'index.html';
+    window.location.href = 'http://pawbs.de';
 }
 
 

@@ -37,7 +37,6 @@
 .loaderLogIn {
     display: none;
     position: fixed;
-    position: fixed;
     border: 3px solid #a3a3a3;
     border-top: 3px solid #000000;
     border-radius: 50%;
@@ -184,7 +183,7 @@ border-radius: 35px;
 
 .splashScreenContainer
 {
-display: none;
+display: flex;
 position: fixed;
 top: 0;
 left: 0;
@@ -197,23 +196,14 @@ background-color: rgba(0, 0, 0, 0.5);
 backdrop-filter: blur(25px);
 }
 
-.splashScreenTop
-{
-position: fixed;
-margin-bottom: 600px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
 
 .splashScreenUploadContainer
 {
-margin-top: 10px;
+position: fixed;
+justify-content: center;
+align-items: center;
 display: flex;
 flex-direction: column;
-align-items: center;
-justify-content: center;
 gap: 50px;
 }
 
@@ -234,16 +224,6 @@ gap: 50px;
     font-size: 30px;
 }
 
-.TopLine
-{
-    height: 50px;
-    gap: 15px;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-right: 17px;
-    margin-top: 10px;
-}
 
 .GermanFurryBtn
 {
@@ -507,5 +487,231 @@ position: fixed;
     margin-left: 60px;
 }
 
+.LogInButton
+{
+    background-color: white;
+    height: 45px;
+    width: 150px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+}
 
 
+.no-scroll {
+    overflow: hidden;
+  }
+
+
+.TopBar
+{
+    display: flex;
+    height: 70px;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    background-color:#381b53;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SocialMediaBtns
+{
+    margin-left: 20px;
+    gap: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.AccountBar
+{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.1s;
+    max-width: 100%;
+    height: 40px;
+    border-radius: 45px;
+    margin-right: 20px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.AccountBar:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.AcountBarPFP
+{
+    background-image: url(Neku_feeties.png);
+    background-position: center;
+    background-size: 40px;
+    background-color: white;
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    justify-content: left;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.ProfileText
+{
+    display: inline-block;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+.ProfileContainer
+{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 700px;
+    width: 500px;
+    border-radius: 10px;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+}
+
+.ProfileDataContainer
+ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+    position: fixed;
+ }
+
+
+.ProfilePFP
+{
+display: flex;
+height: 120px;
+width: 120px;
+border-radius: 100%;
+margin-top: 60px;
+background-image: url(Neku_feeties.png);
+background-position: center;
+background-size: 140px;
+background-repeat: no-repeat;
+}
+
+
+.ProfileName
+{
+    font-size: 40px;
+    color: white;
+    text-decoration: underline dashed;
+    text-underline-offset: 7px;
+    border: none;
+    outline: none;
+    width: 450px;
+    text-align: center;
+}
+
+
+.SaveChangesBtn
+{
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: background-color 0.3s, width 0.2s;
+    height: 45px;
+    width: 185px;
+    border-radius: 40px;
+    border: none;
+    color: black;
+    font-size: 17px;
+    margin-top: 250px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+
+
+.editBtn
+{
+width: 30px;
+height: 30px;
+display: flex;
+cursor: pointer;
+transition: filter 0.2s;
+}
+
+.editBtn:hover{
+    filter: brightness(80%);
+}
+
+
+
+.LogOutBtn
+{
+display: flex;
+width: 150px;
+height: 50px;
+background-color: rgb(0, 0, 0);
+transition: background-color 0.2s, width 0.2s;
+border-radius: 45px;
+cursor: pointer;
+color: rgb(255, 255, 255);
+font-size: 20px;
+justify-content: center;
+align-items: center;
+border: none;
+margin-top: 20px;
+}
+
+.LogOutBtn:hover{
+    background-color: rgb(10, 10, 10);
+}
+
+
+.TopBarUeberschrift
+{
+    font-size: 40px;
+    align-items: center;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+
+.ProfileBanner
+{
+    background-image: url();
+    background-position: center;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: opacity(0.5);
+    height: 700px;
+    width: 500px;
+    border-radius: 10px;
+    position: fixed;
+    justify-content: center;
+}
+
+.ProfileBannerTopBar
+{
+    background-image: url(Banner.png);
+    background-position: center;
+    display: flex;
+    filter: opacity(0.5);
+    position: fixed;
+    max-width: 100%;
+    height: 40px;
+    border-radius: 45px;
+    margin-right: 20px;
+    align-items: center;
+}
